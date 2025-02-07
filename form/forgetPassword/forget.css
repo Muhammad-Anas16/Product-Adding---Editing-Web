@@ -1,0 +1,92 @@
+body {
+    text-transform: capitalize;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111827;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    width: 90%;
+    padding: 10px;
+}
+
+form {
+    padding: 5%;
+    box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(255, 255, 255, 0.06) 0px 0px 0px 1px;
+}
+
+#signIn_form{
+    color: white !important;
+}
+
+#signIn_form input{
+    color: white !important;
+}
+
+#signIn_form input:focus{
+    color: white !important;
+}
+#signIn_form span{
+    color: white !important;
+}
+
+.header {
+    text-align: center;
+    font-size: 2em !important;
+}
+
+#passwordResetContainer i {
+    color: black !important;
+}
+
+p{
+    font-size: small;
+}
+
+a{
+    color: #1A56DB !important;
+    cursor: pointer;
+}
+
+a:hover{
+    color: #1170ff !important;
+}
+
+span{
+    color: #1A56DB !important;
+    cursor: pointer;
+}
+
+span:hover{
+    color: #1170ff !important;
+}
+
+#passwordResetContainer{
+    color: white !important;
+}
+#passwordResetContainer input{
+    color: rgb(0, 0, 0) !important;
+    font-weight: 600;
+}
+
+#passwordResetContainer input:focus{
+    color: rgb(0, 0, 0) !important;
+    font-weight: 600;
+}
+
+#FP_Btn{
+    color: #1A56DB !important;
+    cursor: pointer;
+}
+
+#FP_Btn:hover{
+    color: #1170ff !important;
+}
+
+#ForgetPass{
+    /* display: none; */
+}
