@@ -57,89 +57,38 @@ const checkUser = () => { // check if user sign In
 
 //     section.innerHTML = "";
 
-// let data = `<div class="w-full max-w-sm bg-[#111827] border border-white rounded-lg shadow-md">
-//         <a href="#">
-//             <img class="p-8 rounded-t-lg" src="${img}"
-//                 alt="product image" />
-//         </a>
-//         <div class="px-5 pb-5">
-//             <a href="#">
-//                 <h5 class="text-xl font-semibold tracking-tight text-white">${name}</h5>
-//             </a>
-//             <div class="flex items-center mt-2.5 mb-5">
-//                 <div class="flex items-center space-x-1">
-//                     <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-//                         viewBox="0 0 22 20">
-//                         <path
-//                             d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-//                     </svg>
-//                     <span class="bg-blue-700 text-white text-xs font-semibold px-2.5 py-0.5 rounded">5.0</span>
-//                 </div>
-//             </div>
-//             <div class="flex items-center justify-between">
-//                 <span class="text-3xl font-bold text-white">$${Price}</span>
-//                 <a href="#"
-//                     class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5">Add
-//                     to cart</a>
-//             </div>
-//         </div>
-//     </div>`;
+const ShowData = (displayName, image, Price) => {
+    let data = `<div class="w-full max-w-sm bg-[#111827] border border-white rounded-lg shadow-md">
+        <a href="#">
+            <img class="p-8 rounded-t-lg" src="${image}"
+                alt="product image" />
+        </a>
+        <div class="px-5 pb-5">
+            <a href="#">
+                <h5 class="text-xl font-semibold tracking-tight text-white">${displayName}</h5>
+            </a>
+            <div class="flex items-center mt-2.5 mb-5">
+                <div class="flex items-center space-x-1">
+                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 22 20">
+                        <path
+                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <span class="bg-blue-700 text-white text-xs font-semibold px-2.5 py-0.5 rounded">5.0</span>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-3xl font-bold text-white">$${Price}</span>
+                <a href="#"
+                    class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5">Add
+                    to cart</a>
+            </div>
+        </div>
+    </div>`;
 
-//         section.innerHTML += data;
-// }
+    section += data;
 
-// const readData = async () => {
-//     try {
-
-//         const querySnapshot = await getDocs(collection(db, "product"));
-//         querySnapshot.forEach((doc) => {
-//             let { Price, image, name,} = doc.data();
-
-//             console.log("name =>", name);
-//             console.log("image =>", image);
-//             console.log("Price =>", Price);
-
-//             showData(name, image, Price);
-
-//         });
-
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-
-// const showData = (name, img, Price) => {
-//     // Append new products instead of replacing the content
-//     let data = `<div class="w-full max-w-sm bg-[#111827] border border-white rounded-lg shadow-md">
-//         <a href="#">
-//             <img class="p-8 rounded-t-lg" src="${img}" alt="product image" />
-//         </a>
-//         <div class="px-5 pb-5">
-//             <a href="#">
-//                 <h5 class="text-xl font-semibold tracking-tight text-white">${name}</h5>
-//             </a>
-//             <div class="flex items-center mt-2.5 mb-5">
-//                 <div class="flex items-center space-x-1">
-//                     <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-//                         viewBox="0 0 22 20">
-//                         <path
-//                             d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-//                     </svg>
-//                     <span class="bg-blue-700 text-white text-xs font-semibold px-2.5 py-0.5 rounded">5.0</span>
-//                 </div>
-//             </div>
-//             <div class="flex items-center justify-between">
-//                 <span class="text-3xl font-bold text-white">$${Price}</span>
-//                 <a href="#"
-//                     class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5">Add
-//                     to cart</a>
-//             </div>
-//         </div>
-//     </div>`;
-
-//     // Instead of replacing, append new product cards
-//     section.appendChild(data)
-// }
+}
 
 const readData = async () => {
     try {
@@ -148,39 +97,12 @@ const readData = async () => {
         querySnapshot.forEach((doc) => {
             let { Price, image, name } = doc.data();
 
-        //     let data = `<div class="w-full max-w-sm bg-[#111827] border border-white rounded-lg shadow-md">
-        //     <a href="#">
-        //         <img class="p-8 rounded-t-lg" src="${image}"
-        //             alt="product image" />
-        //     </a>
-        //     <div class="px-5 pb-5">
-        //         <a href="#">
-        //             <h5 class="text-xl font-semibold tracking-tight text-white">${name}</h5>
-        //         </a>
-        //         <div class="flex items-center mt-2.5 mb-5">
-        //             <div class="flex items-center space-x-1">
-        //                 <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-        //                     viewBox="0 0 22 20">
-        //                     <path
-        //                         d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        //                 </svg>
-        //                 <span class="bg-blue-700 text-white text-xs font-semibold px-2.5 py-0.5 rounded">5.0</span>
-        //             </div>
-        //         </div>
-        //         <div class="flex items-center justify-between">
-        //             <span class="text-3xl font-bold text-white">$${Price}</span>
-        //             <a href="#"
-        //                 class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5">Add
-        //                 to cart</a>
-        //         </div>
-        //     </div>
-        // </div>`;
-
+            ShowData(name, image, Price);
             // console.log("name =>", name);
             // console.log("image =>", image);
             // console.log("Price =>", Price);
 
-            console.log(doc.data());
+            console.log("All Post =>", doc.data());
 
         });
     } catch (error) {

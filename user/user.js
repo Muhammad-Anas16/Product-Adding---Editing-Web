@@ -32,7 +32,9 @@ const myPost = async(theId) => {
         const q =  query(collection(db, "product"), where("uid", "==", theId));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((product) => {
-            console.log( product.data());      
+            let showPost = document.createElement("div");     
+            console.log("My Post =>", product.data()); 
+            console.log("show =>", showPost);
           });
 
     } catch (err) {
