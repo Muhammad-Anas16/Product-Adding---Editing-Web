@@ -4,33 +4,5 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1em;
-}
-
-.sec1{
-    width: 100%;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-li:hover{
-    color: #1A56DB !important;
-}
-
-section {
-    width: 100%;
-    height: 100vh;
     background-color: #111827 !important;
-}
-
-section h1 {
-    padding: 10%;
-    padding-bottom: 2%;
-    color: white !important;
-}
-
-section p {
-    padding: 0 10%;
 }
