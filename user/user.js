@@ -38,15 +38,17 @@ const myPost = async (theId) => {
             let tr = document.createElement("tr");
             tr.classList = "border-b border-white";
             tr.innerHTML = `
-            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap border-white">
                             ${name}"
                         </th>
                         <td class="px-6 py-4 border-r border-white">$${Price}</td>
                         <td class="px-6 py-4 text-right">
-                            <a href="../Update_&_Delete/ud.html" class="font-medium text-blue-400 hover:underline">Edit</a>
+                            <a id="${doc.id}" class="font-medium text-blue-400 hover:underline">Edit</a>
                         </td>
             `;
             tBody.appendChild(tr);
+
+            // href="../Update_&_Delete/ud.html" 
 
         });
 
