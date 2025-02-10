@@ -25,16 +25,30 @@
             </div><br>
 
             <div class="mb-5">
-                <input type="text" id="Product_Name" class="bg-transparent text-white border border-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5 placeholder-white" required value="Abc" />
+                <input type="text" id="Product_Name"
+                    class="bg-transparent text-white border border-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5 placeholder-white"
+                    required value="Abc" />
 
             </div>
 
             <div class="mb-5">
-                <input type="number" id="Product_Price" class="bg-transparent text-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-white" required value="123"/>
+                <select id="countries"
+                    class="bg-gray-800 text-white border border-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5">
+                    <option value="CATEGORY" class="bg-gray-800 text-white">CATEGORY</option>
+                    <option value="mobile phones" class="bg-gray-800 text-white">Mobile Phones</option>
+                    <option value="laptops & computers" class="bg-gray-800 text-white">Laptops & Computers</option>
+                    <option value="smartwatches" class="bg-gray-800 text-white">Smartwatches</option>
+                </select>
+            </div>
+
+            <div class="mb-5">
+                <input type="number" id="Product_Price"
+                    class="bg-transparent text-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-white"
+                    required value="123" />
             </div>
 
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" disabled  name="File_Uploader" id="file_Uploaded">
+                <input type="file" disabled name="File_Uploader" id="file_Uploaded">
             </div>
 
             <button type="submit"

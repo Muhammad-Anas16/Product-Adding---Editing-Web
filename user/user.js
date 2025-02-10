@@ -58,7 +58,7 @@ const myPost = async (theId) => {
                 let product_Btn = document.getElementById(`${product.id}`);
                 product_Btn.addEventListener("click", () => {
                     // popUp.style.display = "block";
-                    let data = localStorage.getItem("postData");
+                    let data = JSON.parse(localStorage.getItem("postData"));
                     console.log(product_Btn.id);
                     console.log(data);
                     
