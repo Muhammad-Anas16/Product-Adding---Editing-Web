@@ -6,7 +6,6 @@ import {
     collection,
     query,
     where,
-    onSnapshot,
 
 } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js'
 
@@ -45,19 +44,27 @@ const myPost = async (theId) => {
                         </th>
                         <td class="px-6 py-4 border-r border-white">$${Price}</td>
                         <td class="px-6 py-4 text-right">
-                            <a id="${product.id}" class="font-medium text-blue-400 hover:underline">Edit</a>
+                            <span id="${product.id}" class="font-medium text-blue-400 hover:underline">Edit</span>
                         </td>
             `;
+
+            localStorage.setItem("postData", JSON.stringify({
+                name,
+                Price,
+            }))
             tBody.appendChild(tr);
-            // console.log(tr);
 
             querySnapshot.forEach((product) => {
                 let product_Btn = document.getElementById(`${product.id}`);
-                console.log("Jo mila he =>", product_Btn)
+                product_Btn.addEventListener("click", () => {
+                    // popUp.style.display = "block";
+                    let data = localStorage.getItem("postData");
+                    console.log(product_Btn.id);
+                    console.log(data);
+                    
+                });
 
             });
-
-            // href="../Update_&_Delete/ud.html" 
 
         });
 
@@ -69,5 +76,8 @@ const myPost = async (theId) => {
 
 const tBody = document.getElementById("tBody");
 
+const popUp = document.getElementById("sec0");
+
+console.log(popUp);
 
 check();
