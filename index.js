@@ -59,13 +59,12 @@ const readData = async () => {
         section.innerHTML = ""; // Clear the section before adding new data
         const querySnapshot = await getDocs(collection(db, "product"));
         querySnapshot.forEach((doc) => {
-            let { price, image, name, cetagory } = doc.data();
+            let { price, image, name, } = doc.data();
 
             console.log("doc.data() =>", doc.data());
 
             console.log(image);
             console.log(name);
-            console.log(cetagory);
             console.log(price);
 
             let show_Data_Div = document.createElement("div");
@@ -76,7 +75,7 @@ const readData = async () => {
     <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="${image}">
   </a>
   <div class="mt-4">
-    <h3 class="text-white text-xs tracking-widest title-font mb-1">${cetagory}</h3>
+    <h3 class="text-white text-xs tracking-widest title-font mb-1">CETAGORY</h3>
     <h2 class="text-white title-font text-lg font-medium">${name}</h2>
     <p class="mt-1 text-white">$${price}.00</p>
   </div>

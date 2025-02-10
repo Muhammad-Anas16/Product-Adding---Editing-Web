@@ -25,13 +25,12 @@ const check = () => {
 const add_Data = async (event) => {
     event.preventDefault();
     let p_Name = event.target[0].value;
-    let p_Cetagory = event.target[1].value;
-    let p_Price = event.target[2].value;
-    let p_File = event.target[3];
-    let p_Btn = event.target[4];
+    let p_Price = event.target[1].value;
+    let p_File = event.target[2];
+    let p_Btn = event.target[3];
 
     console.log(" p_Name =>", p_Name);
-    console.log(" p_Cetagory =>", p_Cetagory);
+    // console.log(" p_Cetagory =>", p_Cetagory);
     console.log(" p_Price =>", p_Price);
     console.log(" p_File =>", p_File);
     console.log(" p_Btn =>", p_Btn);
@@ -45,7 +44,6 @@ const add_Data = async (event) => {
             name: p_Name.toUpperCase(),
             price: p_Price.toUpperCase(),
             image: "https://www.productplan.com/uploads/2018/08/product-development.png",
-            cetagory: p_Cetagory.toUpperCase(),
             uid: localStorage.getItem("uid"),
         });
         console.log("Document written with ID: ", docRef.id);
