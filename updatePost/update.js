@@ -20,31 +20,6 @@ const check = () => {
     });
 }
 
-// const getInput = async (event) => {
-
-//     event.preventDefault();
-
-//     product_Btn.innerText = "Updating...";
-
-//     try {
-
-//         await updateDoc(doc(db, "product", `${id}`), {
-//             name: product_Name.value,
-//             price: product_Price.value,
-//         });
-
-//         product_Btn.innerText = "Update Product";
-//         console.log("update done");
-//         localStorage.removeItem("postData");
-//         window.location.replace = "/index.html";
-
-//     } catch (error) {
-//         console.error(error);
-//         // localStorage.removeItem("postData");
-//     }
-
-// };
-
 const getInput = async (event) => {
     event.preventDefault();
 
