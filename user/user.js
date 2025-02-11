@@ -29,44 +29,44 @@ const check = () => {
     });
 }
 
-const getInput = async (event) => {
-    event.preventDefault();
-    let data = JSON.parse(localStorage.getItem("postData"));
+// const getInput = async (event) => {
+//     event.preventDefault();
+//     let data = JSON.parse(localStorage.getItem("postData"));
 
-    let { name, price, id } = data;
+//     let { name, price, id } = data;
 
-    let p_Name = event.target[0].value;
-    let p_price = event.target[1].value;
+//     let p_Name = event.target[0].value;
+//     let p_price = event.target[1].value;
 
-    console.log("UID of Edit Post", id);
+//     console.log("UID of Edit Post", id);
 
-    try {
-        await updateDoc(doc(db, "product", id), {
-            name: p_Name,
-            price: p_price,
-        });
+//     try {
+//         await updateDoc(doc(db, "product", id), {
+//             name: p_Name,
+//             price: p_price,
+//         });
 
-        console.log("update done");
-        myPost();
+//         console.log("update done");
+//         myPost();
 
-        popUp.style.display = "none";
-        sec1.style.display = "flex";
-    } catch (error) {
-        console.error(error);
-    }
+//     } catch (error) {
+//         console.error(error);
+//     }
 
-}
+// }
 
 const myPost = async (theId) => {
     try {
+
+        console.log(theId);
 
         const q = query(collection(db, "product"), where("uid", "==", theId));
         const querySnapshot = await getDocs(q);
         tBody.innerHTML = "";
         querySnapshot.forEach((product) => {
 
-            // console.log(product.data());
-            let { name, price, cetagory } = product.data();
+            console.log(product.data());
+            let { name, price } = product.data();
             let tr = document.createElement("tr");
             tr.classList = "border-b border-white";
             tr.innerHTML = `
@@ -92,18 +92,6 @@ const myPost = async (theId) => {
 
                     console.log("UID of My Post =>", product_Btn.id);
 
-                    let data = JSON.parse(localStorage.getItem("postData"));
-                    let { name, price } = data;
-
-                    let p_Name = document.getElementById("Product_Name");
-                    let p_price = document.getElementById("Product_Price");
-
-                    p_Name.value = name;
-                    p_price.value = price;
-                    
-                    popUp.style.display = "flex";
-                    sec1.style.display = "none";
-
                 });
 
             });
@@ -120,10 +108,7 @@ const myPost = async (theId) => {
 
 const tBody = document.getElementById("tBody");
 
-const popUp = document.getElementById("sec0");
-const sec1 = document.getElementById("sec1");
-
 check();
 
-const update_Form = document.getElementById("update_Product_Form");
-update_Form.addEventListener("submit", getInput);
+// const update_Form = document.getElementById("update_Product_Form");
+// update_Form.addEventListener("submit", getInput);
