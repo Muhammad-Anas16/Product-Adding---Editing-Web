@@ -59,14 +59,14 @@ const myPost = async (theId) => {
     try {
 
         console.log(theId);
-
+        
         const q = query(collection(db, "product"), where("uid", "==", theId));
         const querySnapshot = await getDocs(q);
         tBody.innerHTML = "";
         querySnapshot.forEach((product) => {
 
-            console.log(product.data());
-            let { name, price } = product.data();
+            // console.log(product.data());
+            let { name, price, cetagory } = product.data();
             let tr = document.createElement("tr");
             tr.classList = "border-b border-white";
             tr.innerHTML = `
@@ -91,6 +91,7 @@ const myPost = async (theId) => {
                 product_Btn.addEventListener("click", () => {
 
                     console.log("UID of My Post =>", product_Btn.id);
+                    window.location.href = "/updatePost/update.html";
 
                 });
 

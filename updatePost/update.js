@@ -20,15 +20,49 @@ const check = () => {
     });
 }
 
-const getInput = async (event) => {
+// const getInput = async (event) => {
 
+//     event.preventDefault();
+
+//     product_Btn.innerText = "Updating...";
+
+//     try {
+
+//         await updateDoc(doc(db, "product", `${id}`), {
+//             name: product_Name.value,
+//             price: product_Price.value,
+//         });
+
+//         product_Btn.innerText = "Update Product";
+//         console.log("update done");
+//         localStorage.removeItem("postData");
+//         window.location.replace = "/index.html";
+
+//     } catch (error) {
+//         console.error(error);
+//         // localStorage.removeItem("postData");
+//     }
+
+// };
+
+const getInput = async (event) => {
     event.preventDefault();
 
     product_Btn.innerText = "Updating...";
 
-    try {
+    // Retrieve data from localStorage
+    let data = JSON.parse(localStorage.getItem("postData"));
 
-        await updateDoc(doc(db, "product", `${id}`), {
+    if (!data || !data.id) {
+        console.error("Product ID is missing!");
+        product_Btn.innerText = "Update Product";
+        return;
+    }
+
+    let id = data.id; // Extract the product ID
+
+    try {
+        await updateDoc(doc(db, "product", id), {
             name: product_Name.value,
             price: product_Price.value,
         });
@@ -36,26 +70,24 @@ const getInput = async (event) => {
         product_Btn.innerText = "Update Product";
         console.log("update done");
         localStorage.removeItem("postData");
+        window.location.href = "/index.html"; // Correcting window redirection
 
     } catch (error) {
         console.error(error);
     }
-
 };
 
 check();
 
-let data = JSON.parse(localStorage.getItem("postData")); // get data from localstorage
-let { name, price, id } = data; // Destructure Data
-
+let data = JSON.parse(localStorage.getItem("postData"))
 
 let product_Name = document.getElementById("Product_Name");
 let product_Price = document.getElementById("Product_Price");
 let product_File = document.getElementById("file_Uploaded");
 let product_Btn = document.getElementById("update_Btn");
 
-product_Name.value = name;
-product_Price.value = price;
+product_Name.value = data.name;
+product_Price.value = data.price;
 
 let update = document.getElementById("update_Product_Form");
 update.addEventListener("submit", getInput);
