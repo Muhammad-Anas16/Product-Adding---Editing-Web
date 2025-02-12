@@ -2,10 +2,10 @@ import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.2.0/fi
 
 import {
 
-    collection, 
-    query, 
-    where, 
-    getDocs, 
+    collection,
+    query,
+    where,
+    getDocs,
 
 } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js'
 
@@ -30,15 +30,16 @@ const check = () => {
 
 const myPost = async (theId) => {
 
-    try(
+    try {
+        
+        console.log(theId)
 
-        console.log(theId);
-
-    )catch(error){
-        console.error(error);
     }
+    catch (err) {
 
+        console.error(err)
 
+    };
 
 };
 
