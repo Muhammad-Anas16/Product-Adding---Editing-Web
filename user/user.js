@@ -6,8 +6,6 @@ import {
     collection,
     query,
     where,
-    doc,
-    updateDoc,
 
 } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js'
 
@@ -19,7 +17,8 @@ const check = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log("User => ", user);
+
+            console.log("User => ", uid);
 
             myPost(uid);
 
@@ -56,52 +55,9 @@ const check = () => {
 // }
 
 const myPost = async (theId) => {
-    try {
 
         console.log(theId);
-        
-        const q = query(collection(db, "product"), where("uid", "==", theId));
-        const querySnapshot = await getDocs(q);
-        tBody.innerHTML = "";
-        querySnapshot.forEach((product) => {
 
-            // console.log(product.data());
-            let { name, price, cetagory } = product.data();
-            let tr = document.createElement("tr");
-            tr.classList = "border-b border-white";
-            tr.innerHTML = `
-            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap border-white">
-                            ${name}"
-                        </th>
-                        <td class="px-6 py-4 border-r border-white">$${price}</td>
-                        <td class="px-6 py-4 text-right">
-                            <span id="${product.id}" class="font-medium text-blue-400 hover:underline">Edit</span>
-                        </td>
-            `;
-
-            localStorage.setItem("postData", JSON.stringify({
-                name,
-                price,
-                id: product.id,
-            }))
-            tBody.appendChild(tr);
-
-            querySnapshot.forEach((product) => {
-                let product_Btn = document.getElementById(`${product.id}`);
-                product_Btn.addEventListener("click", () => {
-
-                    console.log("UID of My Post =>", product_Btn.id);
-                    window.location.href = "/updatePost/update.html";
-
-                });
-
-            });
-
-        });
-
-    }catch (err) {
-        console.error(err);
-    }
 }
 
 // Get Elements
@@ -110,6 +66,3 @@ const myPost = async (theId) => {
 const tBody = document.getElementById("tBody");
 
 check();
-
-// const update_Form = document.getElementById("update_Product_Form");
-// update_Form.addEventListener("submit", getInput);
