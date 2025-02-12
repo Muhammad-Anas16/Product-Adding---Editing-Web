@@ -9,7 +9,7 @@ import {
 
 } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js'
 
-import { auth, db } from "../firebase.js";
+import { auth, db, doc } from "../firebase.js";
 
 // Functions
 
@@ -18,8 +18,9 @@ const check = () => {
         if (user) {
             const uid = user.uid;
 
-            console.log("User is Already Login ");
+            console.log("User is Already Login ", user);
 
+            // console.log(uid);
             myPost(uid);
 
         } else {
@@ -30,9 +31,21 @@ const check = () => {
 
 const myPost = async (theId) => {
 
+
     try {
-        
-        console.log(theId)
+
+        console.log("User UID in My Post =>", theId);
+
+        const q = query(collection(db, "product"), where("uid", "==", theId));
+        const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) => {
+
+            // console.log(doc.id);
+            console.log(doc.data());
+
+        });
+
 
     }
     catch (err) {

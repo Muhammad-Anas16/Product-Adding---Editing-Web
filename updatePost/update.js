@@ -3,6 +3,8 @@ import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.2.0/fi
 import {
     updateDoc,
     doc,
+    getDocs,
+    collection,
 
 } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js'
 
@@ -12,12 +14,21 @@ const check = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log("User => ", user);
+            // console.log("User => ", user);
+            console.log("User Login ");
 
         } else {
             console.log("User Not Found")
         }
     });
+}
+
+const getAllPost = async() => {
+    const querySnapshot = await getDocs(collection(db, "product"));
+    querySnapshot.forEach((doc) => { 
+        console.log(doc.id);
+        console.log(doc.data());
+     })
 }
 
 const getInput = async (event) => {
@@ -65,4 +76,4 @@ product_Name.value = data.name;
 product_Price.value = data.price;
 
 let update = document.getElementById("update_Product_Form");
-update.addEventListener("submit", getInput);
+// update.addEventListener("submit", getInput);

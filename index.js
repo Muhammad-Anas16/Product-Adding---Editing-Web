@@ -34,11 +34,7 @@ const checkUser = () => { // check if user sign In
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // displayName.innerHTML = user?.displayName;
-            // photoURL.src = user?.photoURL;
-            // photoURL.classList = "w-9 h-8 rounded-full overflow-hidden"
-
-            // const user_login = user?.displayName;
+            
             loginBtn.addEventListener("click", logOutAccount);
             loginBtn.innerText = `Sign Out`;
             console.log(user);
@@ -61,11 +57,11 @@ const readData = async () => {
         querySnapshot.forEach((doc) => {
             let { price, image, name, } = doc.data();
 
-            console.log("doc.data() =>", doc.data());
+            // console.log("doc.data() =>", doc.data());
 
-            console.log(image);
-            console.log(name);
-            console.log(price);
+            // console.log(image);
+            // console.log(name);
+            // console.log(price);
 
             let show_Data_Div = document.createElement("div");
             show_Data_Div.classList = "lg:w-1/4 md:w-1/2 p-4 w-full";
