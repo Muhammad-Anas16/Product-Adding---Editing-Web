@@ -3,8 +3,6 @@ import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.2.0/fi
 import {
     updateDoc,
     doc,
-    getDocs,
-    collection,
 
 } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js'
 
@@ -23,13 +21,7 @@ const check = () => {
     });
 }
 
-const getAllPost = async() => {
-    const querySnapshot = await getDocs(collection(db, "product"));
-    querySnapshot.forEach((doc) => { 
-        console.log(doc.id);
-        console.log(doc.data());
-     })
-}
+
 
 const getInput = async (event) => {
     event.preventDefault();
